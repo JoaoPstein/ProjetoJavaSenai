@@ -39,7 +39,7 @@ public class JavaBeans {
 	public String getRegistration() {
 		return registration;
 	}
-	public void setRegistrattion(String matricula) {
+	public void setRegistration(String matricula) {
 		this.registration = matricula;
 	}
 	public String getAddress() {

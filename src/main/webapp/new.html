@@ -3,52 +3,47 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Agenda de contatos - Home</title>
-	<link rel="icon" href="imagens/favicon.png">
+	<title>Lista de clientes - Home</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<h1>Cadastrar novo cliente</h1>
 	<form name="frmClient" action="insert">
-				<th>Nome</th>
-				<th>Tipo pessoa</th>
-				<th>Endereço</th>
-				<th>Matricula</th>
-				<th>Tipo da matricula</th>
 		<table>
 			<tr>
 				<td>
-					<input type="text" name="name" placeholder="Nome">
+					<input type="text" name="name" placeholder="Nome" class="Caixa1">
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<input type="text" name="personType" placeholder="Tipo pessoa">
+					<input type="text" name="personType" placeholder="Tipo pessoa" class="Caixa1">
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<input type="text" name="address" placeholder="Endereço">
+					<input type="text" name="address" placeholder="Endereço" class="Caixa1">
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<input type="text" name="registration" placeholder="Matricula">
+					<input type="text" name="registration" placeholder="Matricula" class="Caixa1">
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td>
-					<input type="text" name="enrollmentModality" placeholder="Tipo da matricula">
+					<input type="text" name="enrollmentModality" placeholder="Tipo da matricula" class="Caixa1">
 				</td>
 			</tr>
 		</table>
-		<input type="button" value="Cadastrar" class="Botao1">
+		<input type="button" value="Adicionar" class="Botao1" onclick="validator()">
 	</form>
+	<script src="scripts/validator.js"></script>
 </body>
 
 </html>
