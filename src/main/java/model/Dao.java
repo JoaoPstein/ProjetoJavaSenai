@@ -28,28 +28,21 @@ public class Dao {
 		}
 	}
 
-	public void testeConexao() {
-		try	{
-			Connection con = conectar();
-			System.out.print(con);
-			con.close();
-		} catch(Exception e){
-			System.out.print(e);
-		}
-	}
 
 	public void insertClient(JavaBeans client) {
-		String create = "insert into client (name, personType, address, registration, enrollmentModality)"
-				+ " values (?,?,?,?,?)";
+		String create = "insert into client (name, personType, address, registration, enrollmentModality) values (?,?,?,?,?)";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(create);
+			
 			pst.setString(1, client.getName());
 			pst.setString(2, client.getPersonType());
 			pst.setString(3, client.getAddress());
 			pst.setString(4, client.getRegistration());
 			pst.setString(5, client.getEnrollmentModality());
+			
 			pst.executeUpdate();
+			
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -83,7 +76,7 @@ public class Dao {
 	}
 
 	public void getClientByName(JavaBeans client) {
-		String read2 = "select * from client where name = ?";
+		String read2 = "select * from client where id = ?";
 		
 		try {
 			Connection con = conectar();
@@ -91,11 +84,12 @@ public class Dao {
 			pst.setString(1, client.getId());
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				client.setName(rs.getString(1));
-				client.setPersonType(rs.getString(2));
-				client.setAddress(rs.getString(3));
-				client.setRegistrattion(rs.getString(4));
-				client.setEnrollmentModality(rs.getString(5));
+				client.setId(rs.getString(1));
+				client.setName(rs.getString(2));
+				client.setPersonType(rs.getString(3));
+				client.setAddress(rs.getString(4));
+				client.setRegistration(rs.getString(5));
+				client.setEnrollmentModality(rs.getString(6));
 			}
 			con.close();
 		} catch (Exception e) {
