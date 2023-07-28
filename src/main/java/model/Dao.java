@@ -51,20 +51,21 @@ public class Dao {
 
 	public ArrayList<JavaBeans> listClients(){
 		ArrayList<JavaBeans> clients = new ArrayList<>();
-		String read = "select * from client order by name";
+		String read = "select id, name, personType, address, registration, enrollmentModality from client order by name";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(read);
 			ResultSet rs = pst.executeQuery();
 			
 			while (rs.next()) {
-				String name = rs.getString(1);
-				String personType = rs.getString(2);
-				String address = rs.getString(3);
-				String registration = rs.getString(4);
-				String enrollmentModality = rs.getString(5);
+				String id = rs.getString(1);
+				String name = rs.getString(2);
+				String personType = rs.getString(3);
+				String address = rs.getString(4);
+				String registration = rs.getString(5);
+				String enrollmentModality = rs.getString(6);
 				
-				clients.add(new JavaBeans(name, personType, address, registration, enrollmentModality));
+				clients.add(new JavaBeans(id, name, personType, address, registration, enrollmentModality));
 			}
 			con.close();
 			
@@ -75,8 +76,8 @@ public class Dao {
 		}
 	}
 
-	public void getClientByName(JavaBeans client) {
-		String read2 = "select * from client where id = ?";
+	public void getClientById(JavaBeans client) {
+		String read2 = "select id,name,personType,address,registration,enrollmentModality  from client where id = ?";
 		
 		try {
 			Connection con = conectar();
@@ -98,7 +99,7 @@ public class Dao {
 	}
 
 	public void updateClient(JavaBeans client) {
-		String update = "update client set name=?,address=?,personType=?,registration=?,enrollmentModality=? where id=?";
+		String update = "update client set name=?,personType=?,address=?,registration=?,enrollmentModality=? where id=?";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(update);
@@ -106,7 +107,7 @@ public class Dao {
 			pst.setString(2, client.getPersonType());
 			pst.setString(3, client.getAddress());
 			pst.setString(4, client.getRegistration());
-			pst.setString(4, client.getEnrollmentModality());
+			pst.setString(5, client.getEnrollmentModality());
 			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {
