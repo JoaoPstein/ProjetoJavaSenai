@@ -43,21 +43,21 @@ public class Controller extends HttpServlet {
 	protected void Clients(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ArrayList<JavaBeans> list = dao.listClients();
-		request.setAttribute("clients", list);
+		request.setAttribute("Clients", list);
 		RequestDispatcher rd = request.getRequestDispatcher("client.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void List(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		client.setId(request.getParameter("id"));
-		dao.getClientByName(client);
+		dao.getClientById(client);
 		request.setAttribute("id", client.getId());
 		request.setAttribute("name", client.getName());
 		request.setAttribute("personType", client.getPersonType());
 		request.setAttribute("address", client.getAddress());
 		request.setAttribute("registration", client.getRegistration());
 		request.setAttribute("enrollmentModality", client.getEnrollmentModality());
-		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("edit.jsp");
 		rd.forward(request, response);
 	}
 

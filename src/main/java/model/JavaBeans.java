@@ -13,9 +13,10 @@ public class JavaBeans {
 		super();
 	}
 	
-	public JavaBeans(String name, String registration, String address, String enrollmentModality, String personType) {
+	public JavaBeans(String id, String name, String registration, String address, String enrollmentModality, String personType) {
 		super();
 		
+		this.id = id;
 		this.name = name;
 		this.registration = registration;
 		this.address = address;

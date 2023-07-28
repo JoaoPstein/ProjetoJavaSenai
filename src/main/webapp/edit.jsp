@@ -12,31 +12,38 @@
 	<form name="frmClient" action="update">
 		<table>
 			<tr>
-				<td><input type="text" name="id" id="caixa1" readonly
+				<th class="th">Id</th>
+				<td><input type="text" name="id" readonly class="Caixa1" 
 					value="<%out.print(request.getAttribute("id"));%>"></td>
 			</tr>
 			<tr>
+				<th class="th">Nome</th>
 				<td><input type="text" name="name" class="Caixa1"
 					value="<%out.print(request.getAttribute("name"));%>"></td>
 			</tr>
 			<tr>
+				<th>Tipo pessoa</th>
 				<td><input type="text" name="personType" class="Caixa1"
 					value="<%out.print(request.getAttribute("personType"));%>"></td>
 			</tr>
 			<tr>
+				<th>Endereço</th>
 				<td><input type="text" name="address" class="Caixa1"
 					value="<%out.print(request.getAttribute("address"));%>"></td>
 			</tr>
 			<tr>
+				<th>Matricula</th>
 				<td><input type="text" name="registration" class="Caixa1"
 					value="<%out.print(request.getAttribute("registration"));%>"></td>
 			</tr>
 			<tr>
+				<th>Tipo da matricula</th>
 				<td><input type="text" name="enrollmentModality" class="Caixa1"
 					value="<%out.print(request.getAttribute("enrollmentModality"));%>"></td>
 			</tr>
 		</table>
-		<input type="button" value="Salvar" class="Botao1" onclick="validator()">
+		<input type="button" value="Salvar" class="Botao1"
+			onclick="validator()">
 	</form>
 	<script src="scripts/validator.js"></script>
 </body>
