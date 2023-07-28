@@ -3,47 +3,267 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Lista de clientes - Home</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Agenda de contatos - Home</title>
+	<link rel="icon" href="imagens/favicon.png">
+	<link rel="stylesheet" href="style02.css">
+	<style>
+		* {
+		  margin: 0;
+		  padding: 0;
+		}
+	
+		body {
+		  background-color: black;
+		  overflow: hidden;
+		  position: relative;
+		}
+	
+		.matrix-animation {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  pointer-events: none;
+		  z-index: -1;
+		}
+	
+		.matrix-animation canvas {
+		  display: block;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color: #fff;
+			text-align: center;
+		}
+	
+		h1 {
+			font-size: 32px;
+			margin-bottom: 20px;
+			color: #fff;
+		}
+	
+		form {
+			margin-bottom: 20px;
+		}
+	
+		table {
+			margin-bottom: 20px;
+			border-collapse: collapse;
+			width: 100%;
+		}
+	
+		th, td {
+			padding: 10px;
+			border: 1px solid #fff;
+		}
+	
+		th {
+			background-color: #333;
+		}
+	
+		input[type="text"] {
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			transition: border-color 0.3s;
+		}
+	
+		input[type="text"]:focus {
+			outline: none;
+			border-color: #fff;
+		}
+	
+		input[type="button"] {
+			padding: 10px 20px;
+			background-color: #333;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+	
+		input[type="button"]:hover {
+			background-color: #555;
+		}
+	
+		/* Estilo do botão "Cadastrar" */
+		.Botao1 {
+			display: inline-block;
+			margin-top: 10px;
+		}
+	
+		/* Estilo das células da tabela */
+		table td {
+			border-bottom: 1px solid #fff;
+		}
+	
+		/* Estilo das células da última linha da tabela */
+		table tr:last-child td {
+			border-bottom: none;
+		}
+	</style>
 </head>
 
 <body>
-	<h1>Cadastrar novo cliente</h1>
-	<form name="frmClient" action="insert">
-		<table>
-			<tr>
-				<td>
-					<input type="text" name="name" placeholder="Nome" class="Caixa1">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<input type="text" name="personType" placeholder="Tipo pessoa" class="Caixa1">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<input type="text" name="address" placeholder="Endereço" class="Caixa1">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<input type="text" name="registration" placeholder="Matricula" class="Caixa1">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<input type="text" name="enrollmentModality" placeholder="Tipo da matricula" class="Caixa1">
-				</td>
-			</tr>
-		</table>
-		<input type="button" value="Adicionar" class="Botao1" onclick="validator()">
-	</form>
-	<script src="scripts/validator.js"></script>
+	<div class="container">
+		<img src="imagens/agenda.png" alt="Agenda de Contatos">
+		<h1>Cadastrar novo cliente</h1>
+		<form name="frmClient" action="insert">
+			<table>
+				<tr>
+					<th>Nome</th>
+					<td>
+						<input type="text" name="name" placeholder="Nome">
+					</td>
+				</tr>
+				<tr>
+					<th>Tipo pessoa</th>
+					<td>
+						<input type="text" name="personType" placeholder="Tipo pessoa">
+					</td>
+				</tr>
+				<tr>
+					<th>Endereço</th>
+					<td>
+						<input type="text" name="address" placeholder="Endereço">
+					</td>
+				</tr>
+				<tr>
+					<th>Matricula</th>
+					<td>
+						<input type="text" name="registration" placeholder="Matricula">
+					</td>
+				</tr>
+				<tr>
+					<th>Tipo da matricula</th>
+					<td>
+						<input type="text" name="enrollmentModality" placeholder="Tipo da matricula">
+					</td>
+				</tr>
+			</table>
+			<input type="button" value="Cadastrar" class="Botao1">
+		</form>
+	</div>
+	<div class="matrix-animation"></div>
+	<script>
+		// creating the canvas element
+		const canvas = document.createElement("canvas");
+		const context = canvas.getContext("2d");
+	
+		// adding the canvas to the .matrix-animation div
+		const matrixAnimation = document.querySelector(".matrix-animation");
+		matrixAnimation.appendChild(canvas);
+	
+		// setting the canvas size
+		const width = (canvas.width = window.innerWidth);
+		const height = (canvas.height = window.innerHeight);
+	
+		// letters used on Matrix rain
+		// more on: https://bit.ly/3yFJoU3
+		const letters = [
+			"日",
+			"ﾊ",
+			"ﾐ",
+			"ﾋ",
+			"ｰ",
+			"ｳ",
+			"ｼ",
+			"ﾅ",
+			"ﾓ",
+			"ﾆ",
+			"ｻ",
+			"ﾜ",
+			"ﾂ",
+			"ｵ",
+			"ﾘ",
+			"ｱ",
+			"ﾎ",
+			"ﾃ",
+			"ﾏ",
+			"ｹ",
+			"ﾒ",
+			"ｴ",
+			"ｶ",
+			"ｷ",
+			"ﾑ",
+			"ﾕ",
+			"ﾗ",
+			"ｾ",
+			"ﾈ",
+			"ｽ",
+			"ﾀ",
+			"ﾇ",
+			"ﾍ",
+			":",
+			"・",
+			".",
+			"=",
+			"*",
+			"+",
+			"-",
+			"<",
+			">",
+			"¦",
+			"｜",
+			"ﾘ",
+		];
+	
+		const fontSize = 18;
+	
+		// defining how many columns to print based on canvas width and font size
+		const columns = width / fontSize;
+	
+		// creating an array of drops to each column
+		const drops = [];
+	
+		// starting every drop at a y=1 position
+		for (let x = 0; x < columns; x++) {
+			drops[x] = 1;
+		}
+	
+		// drawing the characters
+		function draw() {
+			// painting the background
+			// the trick here is to use opacity
+			// so it will fade out with time
+			context.fillStyle = "rgba(0, 0, 0, 0.05)";
+			context.fillRect(0, 0, width, height);
+	
+			// defining font styles (color and font family/size)
+			context.fillStyle = "#0F0";
+			context.font = `${fontSize}px arial`;
+	
+			// drawing the characters
+			for (let i = 0; i < drops.length; i++) {
+				// get a random letter from the array
+				const text = letters[Math.floor(Math.random() * letters.length)];
+	
+				// drawing the character
+				context.fillText(text, i * fontSize, drops[i] * fontSize);
+	
+				// moving the drop to the beginning of the canvas when it reaches the bottom
+				// or when the random expression is true in order to make the rain randomly
+				if (drops[i] * fontSize > height && Math.random() > 0.975) {
+					drops[i] = 0;
+				}
+	
+				// moving the drop in the Y coordinate
+				drops[i]++;
+			}
+	
+			// recursive call to draw frame by frame
+			window.requestAnimationFrame(draw);
+		}
+	
+		draw();
+	</script>
 </body>
 
 </html>
