@@ -25,6 +25,7 @@
 				<th>Endereço</th>
 				<th>Matricula</th>
 				<th>Tipo da matricula</th>
+				<th>Ação</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,6 +33,7 @@
 				for (int i = 0; i < list.size(); i++) {
 			%>
 			<tr>
+				<td><%=list.get(i).getId()%></td>
 				<td><%=list.get(i).getName()%></td>
 				<td><%=list.get(i).getPersonType()%></td>
 				<td><%=list.get(i).getAddress()%></td>
@@ -40,7 +42,7 @@
 				<td>
 					<a href="select?id=<%=list.get(i).getId()%>"
 					class="Botao1">Editar</a>
-					<a href="javascript: confirmar(<%=list.get(i).getId()%>)"
+					<a href="javascript: confimation(<%=list.get(i).getId()%>)"
 					class="Botao2">Excluir</a>
 				</td>
 			</tr>
@@ -49,6 +51,6 @@
 			%>
 		</tbody>
 	</table>
-	<script src="scripts/confirmador.js"></script>
+	<script src="scripts/confirmation.js"></script>
 </body>
 </html>

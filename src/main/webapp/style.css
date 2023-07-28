@@ -71,4 +71,8 @@ h1 {
 #tabela td {
 	border: 1px solid #ddd;
 	padding: 10px;
+}	
+
+.th{
+	margin-top: 1rem;
 }
