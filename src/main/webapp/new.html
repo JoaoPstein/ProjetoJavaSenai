@@ -1,10 +1,10 @@
+</html>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
 	<meta charset="utf-8">
-	<title>Agenda de contatos - Home</title>
-	<link rel="icon" href="imagens/favicon.png">
+	<title>Clientes - Home</title>
 	<link rel="stylesheet" href="style02.css">
 	<style>
 		* {
@@ -113,7 +113,6 @@
 
 <body>
 	<div class="container">
-		<img src="imagens/agenda.png" alt="Agenda de Contatos">
 		<h1>Cadastrar novo cliente</h1>
 		<form name="frmClient" action="insert">
 			<table>
@@ -148,11 +147,12 @@
 					</td>
 				</tr>
 			</table>
-			<input type="button" value="Cadastrar" class="Botao1">
+			<input type="button" value="Adicionar" class="Botao1" onclick="validator()">
 		</form>
 	</div>
 	<div class="matrix-animation"></div>
-	<script>
+	<script src="scripts/validator.js"></script>
+	<script> 
 		// creating the canvas element
 		const canvas = document.createElement("canvas");
 		const context = canvas.getContext("2d");
