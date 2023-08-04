@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `client`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `client` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `registration` varchar(50) NOT NULL,
-  `enrollmentModality` varchar(50) NOT NULL,
-  `personType` varchar(50) DEFAULT NULL,
+  `name` varchar(200) NOT NULL,
+  `personType` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `registration` int NOT NULL,
+  `enrollmentModality` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (26,'nome','endereco','matricula','tipo','Juridica'),(28,'João','Endereço','Matricula','Tipo','Fisica'),(29,'stefany','endereco','matricula','tipo matricula','Juridica');
+INSERT INTO `client` VALUES (1,'João','Fisica','Endereço',1,'Tipo da matricula');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-04  6:54:31
+-- Dump completed on 2023-08-04  7:57:04

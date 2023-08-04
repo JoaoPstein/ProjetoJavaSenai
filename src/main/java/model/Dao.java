@@ -38,7 +38,7 @@ public class Dao {
 			pst.setString(1, client.getName());
 			pst.setString(2, client.getPersonType());
 			pst.setString(3, client.getAddress());
-			pst.setString(4, client.getRegistration());
+			pst.setInt(4, client.getRegistration());
 			pst.setString(5, client.getEnrollmentModality());
 			
 			pst.executeUpdate();
@@ -62,7 +62,7 @@ public class Dao {
 				String name = rs.getString(2);
 				String personType = rs.getString(3);
 				String address = rs.getString(4);
-				String registration = rs.getString(5);
+				int registration = rs.getInt(5);
 				String enrollmentModality = rs.getString(6);
 				
 				clients.add(new JavaBeans(id, name, personType, address, registration, enrollmentModality));
@@ -90,7 +90,7 @@ public class Dao {
 				client.setName(rs.getString(2));
 				client.setPersonType(rs.getString(3));
 				client.setAddress(rs.getString(4));
-				client.setRegistration(rs.getString(5));
+				client.setRegistration(rs.getInt(5));
 				client.setEnrollmentModality(rs.getString(6));
 			}
 			con.close();
@@ -108,7 +108,7 @@ public class Dao {
 			pst.setString(2, client.getName());
 			pst.setString(3, client.getPersonType());
 			pst.setString(4, client.getAddress());
-			pst.setString(5, client.getRegistration());
+			pst.setInt(5, client.getRegistration());
 			pst.setString(6, client.getEnrollmentModality());
 			pst.executeUpdate();
 			con.close();

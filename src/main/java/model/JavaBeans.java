@@ -5,7 +5,7 @@ public class JavaBeans {
 	private int id;
 	private String name;
 	private String address;
-	private String registration;
+	private int registration;
 	private String enrollmentModality;
 	private String personType;
 	
@@ -13,15 +13,15 @@ public class JavaBeans {
 		super();
 	}
 	
-	public JavaBeans(int id, String name, String address, String registration, String enrollmentModality, String personType) {
+	public JavaBeans(int id, String name, String personType, String address, int registration, String enrollmentModality) {
 		super();
 		
 		this.id = id;
 		this.name = name;
+		this.personType = personType;
 		this.address = address;
 		this.registration = registration;
 		this.enrollmentModality = enrollmentModality;
-		this.personType = personType;
 	}
 	
 	public int getId(){
@@ -43,10 +43,10 @@ public class JavaBeans {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getRegistration() {
+	public int getRegistration() {
 		return registration;
 	}
-	public void setRegistration(String registration) {
+	public void setRegistration(int registration) {
 		this.registration = registration;
 	}
 	public String getEnrollmentModality() {

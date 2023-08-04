@@ -53,7 +53,7 @@ body {
 	text-align: center;
 }
 
-.botaoNovoCliente{
+.botaoNovoCliente {
 	text-decoration: none;
 	background-color: rgb(0, 255, 0);
 	padding: 5px 10px 5px 10px;
@@ -65,13 +65,13 @@ body {
 	cursor: pointer;
 }
 
-.divButton{
+.divButton {
 	margin-top: 1rem;
 	height: 3rem;
-	margin-left:71rem;
+	margin-left: 71rem;
 }
 
-.botaoNovoCliente{
+.botaoNovoCliente {
 	text-decoration: none;
 	background-color: rgb(0, 255, 0);
 	padding: 5px 10px 5px 10px;
@@ -111,7 +111,6 @@ body {
 	margin-bottom: 20px;
 	color: #fff;
 }
-
 </style>
 </head>
 <body>
@@ -134,7 +133,8 @@ body {
 			</thead>
 			<tbody>
 				<%
-				for (int i = 0; i < list.size(); i++) {
+				if (list != null) {
+					for (int i = 0; i < list.size(); i++) {
 				%>
 				<tr>
 					<td><%=list.get(i).getId()%></td>
@@ -149,6 +149,7 @@ body {
 						class="botao2">Excluir</a></td>
 				</tr>
 				<%
+				}
 				}
 				%>
 			</tbody>
