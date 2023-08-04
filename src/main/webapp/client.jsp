@@ -71,18 +71,11 @@ body {
 	margin-left: 71rem;
 }
 
-.botaoNovoCliente {
-	text-decoration: none;
-	background-color: rgb(0, 255, 0);
-	padding: 5px 10px 5px 10px;
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: 700;
-	border-radius: 5px;
-	border: 0;
-	cursor: pointer;
+.divButton{
+	margin-top: 1rem;
+	height: 3rem;
+	margin-left:71rem;
 }
-
 .botao2 {
 	text-decoration: none;
 	background-color: #d51213;
@@ -150,6 +143,7 @@ body {
 				</tr>
 				<%
 				}
+
 				}
 				%>
 			</tbody>

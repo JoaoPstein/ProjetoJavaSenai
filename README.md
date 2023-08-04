@@ -14,6 +14,15 @@ Projeto desenvolvido para resolução de um problema apresentado pelo Senai no c
 
 ## Stack utilizada
 
-**Front-end:** HTML e CSS
+- Servidor Tomcat
+- Servlet e JSP
+- IDE Eclipse
+- JDBC (Java Database Connectivity)
+- MySQL CRUD
+- MVC (Model View Controller)
+- JavaBeans
+- DAO
+- HTML e CSS
 
-**Back-end:** Java, Servelet e JSP
+## Executando a aplicação
+Já com o projeto clona e com o banco de dados corretamente importado você deverá abrir o código em alguma IDE de sua preferência e executar o arquivo index.html
