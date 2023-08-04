@@ -2,10 +2,10 @@ package model;
 
 public class JavaBeans {
 	
-	private String id;
+	private int id;
 	private String name;
-	private String registration;
 	private String address;
+	private int registration;
 	private String enrollmentModality;
 	private String personType;
 	
@@ -13,52 +13,52 @@ public class JavaBeans {
 		super();
 	}
 	
-	public JavaBeans(String id, String name, String registration, String address, String enrollmentModality, String personType) {
+	public JavaBeans(int id, String name, String personType, String address, int registration, String enrollmentModality) {
 		super();
 		
 		this.id = id;
 		this.name = name;
-		this.registration = registration;
-		this.address = address;
-		this.enrollmentModality = enrollmentModality;
 		this.personType = personType;
+		this.address = address;
+		this.registration = registration;
+		this.enrollmentModality = enrollmentModality;
 	}
 	
-	public String getId(){
+	public int getId(){
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
 	public String getName(){
 		return name;
 	}
-	public void setName(String nome) {
-		this.name = nome;
-	}
-	public String getRegistration() {
-		return registration;
-	}
-	public void setRegistration(String matricula) {
-		this.registration = matricula;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getAddress() {
 		return address;
 	}
-	public void setAddress(String endereco) {
-		this.address = endereco;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getRegistration() {
+		return registration;
+	}
+	public void setRegistration(int registration) {
+		this.registration = registration;
 	}
 	public String getEnrollmentModality() {
 		return enrollmentModality;
 	}
-	public void setEnrollmentModality(String modalidadeMatricula) {
-		this.enrollmentModality = modalidadeMatricula;
+	public void setEnrollmentModality(String enrollmentModality) {
+		this.enrollmentModality = enrollmentModality;
 	}
 	public String getPersonType() {
 		return personType;
 	}
-	public void setPersonType(String tipoPessoa) {
-		this.personType = tipoPessoa;
+	public void setPersonType(String personType) {
+		this.personType = personType;
 	}
 }
