@@ -11,7 +11,7 @@ import model.JavaBeans;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(urlPatterns = { "/controller", "/main", "/insert", "/select", "/update", "/delete", "/report" })
+@WebServlet(urlPatterns = { "/controller", "/main", "/insert", "/select", "/update", "/delete" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Dao dao = new Dao();
@@ -49,8 +49,13 @@ public class Controller extends HttpServlet {
 	}
 
 	protected void List(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		client.setId(request.getParameter("id"));
+		String idParam = request.getParameter("id");
+		int id;
+		id = Integer.parseInt(idParam);
+		client.setId(id);
+		
 		dao.getClientById(client);
+		
 		request.setAttribute("id", client.getId());
 		request.setAttribute("name", client.getName());
 		request.setAttribute("personType", client.getPersonType());
@@ -75,7 +80,10 @@ public class Controller extends HttpServlet {
 
 	protected void UpdateClient(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		client.setId(request.getParameter("id"));
+		String idParam = request.getParameter("id");
+		int id;
+		id = Integer.parseInt(idParam);
+		client.setId(id);
 		client.setName(request.getParameter("name"));
 		client.setPersonType(request.getParameter("personType"));
 		client.setAddress(request.getParameter("address"));
@@ -87,7 +95,10 @@ public class Controller extends HttpServlet {
 
 	protected void DeleteClient(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		client.setId(request.getParameter("id"));
+		String idParam = request.getParameter("id");
+		int id;
+		id = Integer.parseInt(idParam);
+		client.setId(id);
 		dao.deleteClient(client);
 		response.sendRedirect("main");
 	}

@@ -51,14 +51,14 @@ public class Dao {
 
 	public ArrayList<JavaBeans> listClients(){
 		ArrayList<JavaBeans> clients = new ArrayList<>();
-		String read = "select id, name, personType, address, registration, enrollmentModality from client order by name";
+		String read = "select * from client order by name";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(read);
 			ResultSet rs = pst.executeQuery();
 			
 			while (rs.next()) {
-				String id = rs.getString(1);
+				int id = rs.getInt(1);
 				String name = rs.getString(2);
 				String personType = rs.getString(3);
 				String address = rs.getString(4);
@@ -77,15 +77,16 @@ public class Dao {
 	}
 
 	public void getClientById(JavaBeans client) {
-		String read2 = "select id,name,personType,address,registration,enrollmentModality  from client where id = ?";
+		String read2 = "select * from client where id = ?";
 		
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(read2);
-			pst.setString(1, client.getId());
+			pst.setInt(1, client.getId());
 			ResultSet rs = pst.executeQuery();
+			
 			while (rs.next()) {
-				client.setId(rs.getString(1));
+				client.setId(rs.getInt(1));
 				client.setName(rs.getString(2));
 				client.setPersonType(rs.getString(3));
 				client.setAddress(rs.getString(4));
@@ -103,11 +104,12 @@ public class Dao {
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(update);
-			pst.setString(1, client.getName());
-			pst.setString(2, client.getPersonType());
-			pst.setString(3, client.getAddress());
-			pst.setString(4, client.getRegistration());
-			pst.setString(5, client.getEnrollmentModality());
+			pst.setInt(1, client.getId());
+			pst.setString(2, client.getName());
+			pst.setString(3, client.getPersonType());
+			pst.setString(4, client.getAddress());
+			pst.setString(5, client.getRegistration());
+			pst.setString(6, client.getEnrollmentModality());
 			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {
@@ -120,7 +122,7 @@ public class Dao {
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(delete);
-			pst.setString(1, client.getId());
+			pst.setInt(1, client.getId());
 			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {
