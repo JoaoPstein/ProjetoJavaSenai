@@ -111,7 +111,9 @@ public class Dao {
 			pst.setInt(4, client.getRegistration());
 			pst.setString(5, client.getEnrollmentModality());
 			pst.setInt(6, client.getId());
+			
 			pst.executeUpdate();
+			
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
