@@ -104,12 +104,13 @@ public class Dao {
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(update);
-			pst.setInt(1, client.getId());
-			pst.setString(2, client.getName());
-			pst.setString(3, client.getPersonType());
-			pst.setString(4, client.getAddress());
-			pst.setInt(5, client.getRegistration());
-			pst.setString(6, client.getEnrollmentModality());
+			
+			pst.setString(1, client.getName());
+			pst.setString(2, client.getPersonType());
+			pst.setString(3, client.getAddress());
+			pst.setInt(4, client.getRegistration());
+			pst.setString(5, client.getEnrollmentModality());
+			pst.setInt(6, client.getId());
 			pst.executeUpdate();
 			con.close();
 		} catch (Exception e) {
