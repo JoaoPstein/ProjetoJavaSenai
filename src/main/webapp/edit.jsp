@@ -103,16 +103,35 @@ table tr:last-child td {
 	border-bottom: none;
 }
 
-.botaoNovoCliente {
-	text-decoration: none;
-	background-color: rgb(0, 255, 0);
-	padding: 5px 10px 5px 10px;
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: 700;
-	border-radius: 5px;
-	border: 0;
+.buttonNewClient {
+	display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 	cursor: pointer;
+}
+
+.buttonNewClient:hover{
+ background-color: #45a049;
+}
+
+.botaoVoltar {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-left: -32rem;
+    cursor: pointer;
+}
+
+.botaoVoltar:hover{
+ background-color: #45a049;
 }
 
 </style>
@@ -156,8 +175,8 @@ table tr:last-child td {
 						value="<%out.print(request.getAttribute("enrollmentModality"));%>"></td>
 				</tr>
 			</table>
-			<input type="button" value="Salvar" class="botaoNovoCliente"
-				onclick="validator()">
+			<input type="button" value="Salvar" class="buttonNewClient"
+				onclick="validator()"> <a href="main" class="botaoVoltar">Voltar</a>
 		</form>
 	</div>
 	<script src="scripts/validator.js"></script>

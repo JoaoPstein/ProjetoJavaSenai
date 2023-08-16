@@ -8,7 +8,7 @@ function validator() {
 		alert('Preencha o campo Nome')
 		frmClient.name.focus()
 		return false
-	} else if (personType === "") {
+	} else if (personType === "" || personType === "Selecione uma opção") {
 		alert('Preencha o campo Tipo pessoa')
 		frmClient.name.focus()
 		return false
