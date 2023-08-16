@@ -55,7 +55,6 @@ body {
 
 .botaoNovoCliente {
 	text-decoration: none;
-	background-color: rgb(0, 255, 0);
 	padding: 5px 10px 5px 10px;
 	color: #fff;
 	font-size: 1.2em;
@@ -65,17 +64,22 @@ body {
 	cursor: pointer;
 }
 
+.botaoNovoCliente:hover {
+	background-color: #45a049;
+}
+
 .divButton {
 	margin-top: 1rem;
 	height: 3rem;
 	margin-left: 71rem;
 }
 
-.divButton{
+.divButton {
 	margin-top: 1rem;
 	height: 3rem;
-	margin-left:71rem;
+	margin-left: 71rem;
 }
+
 .botao2 {
 	text-decoration: none;
 	background-color: #d51213;
@@ -84,6 +88,10 @@ body {
 	font-size: 1.2em;
 	font-weight: 700;
 	border-radius: 5px;
+}
+
+.botao2:hover {
+	background-color: #e35d5e;
 }
 
 .botao1 {
@@ -98,11 +106,19 @@ body {
 	cursor: pointer;
 }
 
+.botao1:hover {
+	background-color: #8dc1eb;
+}
+
 .title {
 	margin-right: 71rem;
 	font-size: 32px;
 	margin-bottom: 20px;
 	color: #fff;
+}
+
+.icon {
+	
 }
 </style>
 </head>
